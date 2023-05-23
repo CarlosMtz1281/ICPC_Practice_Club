@@ -1,5 +1,5 @@
 # ICPC_Practice_Club
 Problems to practice competitive programing 
 
-Colaborated by: \n
+Colaborated by: <br/>
 @CarlosMtz1281
