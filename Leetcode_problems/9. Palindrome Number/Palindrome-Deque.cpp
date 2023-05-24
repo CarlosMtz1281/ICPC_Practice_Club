@@ -15,5 +15,5 @@ public:
             return true;
         }else{ return false; }
 
-    }//Palindrome with deque
+    }//Palindrome with deque 
 };
