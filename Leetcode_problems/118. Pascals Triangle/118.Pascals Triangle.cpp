@@ -4,19 +4,20 @@ using namespace std;
 
 class Solution {
 public:
-    vector <int> memo ;
-
-    int fib(int n) {
-        if (n == 0) return 0;
-        if (n == 1) return 1;
-
-        int memo[n]; 
-        memo[0] = 0;
-        memo[1] = 1;
-
-        for (int i = 2; i < n; i++){
-            memo[i] = memo[i-1]+memo[i-2];
+    vector<vector<int>> generate(int numRows) {
+        vector <int> vecTemp;
+        vecTemp.push_back(1);
+        vector <vector<int>> answer;
+        answer.push_back(vecTemp);
+        for(int i = 0; i<numRows-1; i++){
+            vecTemp.clear();
+            vecTemp.push_back(1);
+            for(int j = 0; j< answer[i].size()-1; j++){
+                vecTemp.push_back(answer[i][j]+answer[i][j+1]);
+            }
+            vecTemp.push_back(1);
+            answer.push_back(vecTemp);
         }
-        return (memo[n-1]+memo[n-2]);
+        return answer;
     }
 };
