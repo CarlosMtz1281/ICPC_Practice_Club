@@ -6,4 +6,5 @@ Colaborated by: <br/>
 @nicoTC-04 <br/>
 @GermanS04 <br/>
 @EmilioDomM <br/>
-@imanolgzz
+@imanolgzz <br/>
+@SergioTomas5004 <br/>
