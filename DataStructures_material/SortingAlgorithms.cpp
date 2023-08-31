@@ -1,5 +1,8 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
+
+
 
 using namespace std;
 
@@ -123,10 +126,54 @@ void insertionSort(vector <int> list){
     cout<<"Swaps: "<< changes<<endl;
 }
 
+void shellSort(vector <int> list){
+    int compararisons = 0;
+    int changes = 0;
+    int size = list.size();
+    int gap = floor(size/2);
+    bool noChange = true;
+
+    while(gap > 0){
+        noChange = true;
+
+        //iterate through list comoparing with gap instead of adjecent
+        for(int i = gap; i<size; i++){
+            compararisons++;
+            if(list[i] < list[i-gap]){
+                noChange = false;
+                changes++;
+                swap(list,i,i-gap);
+            }
+        }
+        //if there wasnt a swap change the gap
+        if(noChange){
+            gap= floor(gap/2);
+        }
+
+    }
+
+
+    cout<<endl<< "-------Shell Sort"<<endl;
+    printList(list);
+    cout<<"Comparisons: "<< compararisons<<endl;
+    cout<<"Swaps: "<< changes<<endl;
+}
+
 int main(){
-    vector <int> list = {8,5, 23, 22,2,10};
+    //create random vector
+    vector<int> list;
+        srand((unsigned)time(NULL));
+        int a = rand() % 20 + 1; //1 to 20
+        for (int i =0; i < a; i++){
+                int b = rand() % 20 + 1;
+                list.push_back(b);
+            }
+
+
+    //vector <int> list = {8,5, 23, 22,2,10};
     cout<<"Unorganaized list: ";
     printList(list);
+
     bubbleSort(list);
 
     swapSort(list);
@@ -137,6 +184,8 @@ int main(){
 
     //quickSort
     //Megre Sort
+
+    shellSort(list);
     return 0;
 
 }
